@@ -1,26 +1,25 @@
----
 language: node_js
 node_js:
-  - "6"
-
+- '6'
 sudo: false
 dist: trusty
-
 addons:
   chrome: stable
-
 cache:
   directories:
-    - $HOME/.npm
-
+  - "$HOME/.npm"
 env:
   global:
-    # See https://git.io/vdao3 for details.
-    - JOBS=1
-
+  - JOBS=1
 before_install:
-  - npm config set spin false
-
+- npm config set spin false
 script:
-  - npm run lint:js
-  - npm test
+- npm run lint:js
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: SgrsJ9FasJtnc+gLGekeGmpc2npQlU0BKU3MPDOl0ErpzhlyxInDIjHbRTCowl+4lLP5MedFYOd+6hGav0lvZh7A83CCE5aYKao/A7V8meBxeqgCFAWC3jXCfKj4NFaxtW0E0Iv2HTjQXFfIGv/xdsMPGxMyvXMTpgLwOC4nIXAXZxwBgIxaMKG7ae/xkoZx0Xc09ap28HnsrEoAEjKknvXGgQCd4X0i6r2pkVOjpNwh6Zq6e2iDGUbO9djaoHHpDz/W2DSER+YxI9MKMf9GkxDMyCsgI1el3ZfO5QX0ze7JqUXdq/TQhd43+MzBYKnRNy/fRBONpL/aFO5iFovfuf76/Z2mKs2f1qUmwEjMfrtR6psy4qb+11O6YJ2RdZ86Y4/VihFzvlJAJAoG4nehRGXcaC53RCvVN6ItpE7ouxvfiXbyvoGXMAqEFO32/cHjBmgn5WyQ+wMt2CLPN7/29XOn11OVqJwzJn1Yn0Pb30c6Ptwrwo/Pl8fa6uBqQ3Agyu1yLTqvv+yx+apE4pEYw9jgt9w1MKZPNXSe0atz31EXrT73cK+h/Zt3vcQbC8SM2AqqrD8DL32P/M9g+2P97eLSDjnBR587D95/boUGpMpyXepVlS6hcQdL0/eN6UpgHi0STknT41luIQzUPbllOyIiMdp7kjZK2CHP3VguWl8=
+  app: frozen-tor-41329
+  on:
+    repo: Tornskaden/tutorial-peepchat-ui
